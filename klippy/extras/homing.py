@@ -204,11 +204,6 @@ class Homing:
                 raise self.printer.command_error(
                     "Endstop %s still triggered after retract"
                     % (hmove.check_no_movement(),))
-        # Signal home operation complete
-        self.toolhead.flush_step_generation()
-        self.trigger_mcu_pos = {sp.stepper_name: sp.trig_pos
-                                for sp in hmove.stepper_positions}
-        self.adjust_pos = {}
         # Trigger a retract after homing to prevent CORExy locking up if set
         if hi.homing_retract_after:
             # Retract after finished homing
@@ -220,7 +215,13 @@ class Homing:
             retractpos = [hp - ad * retract_r
                           for hp, ad in zip(homepos, axes_d)]
             self.toolhead.move(retractpos, hi.retract_speed)
+        # Signal home operation complete
+        self.toolhead.flush_step_generation()
+        self.trigger_mcu_pos = {sp.stepper_name: sp.trig_pos
+                                for sp in hmove.stepper_positions}
+        self.adjust_pos = {}
         self.printer.send_event("homing:home_rails_end", self, rails)
+        
         if any(self.adjust_pos.values()):
             # Apply any homing offsets
             kin = self.toolhead.get_kinematics()
