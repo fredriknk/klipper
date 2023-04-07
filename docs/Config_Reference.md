@@ -196,7 +196,8 @@ position_max:
 #   The default is 0mm.
 #homing_retract_dwell: 0.
 #   Seconds dwell time after retract to prevent triggering when homing
-#   sensorless in corexy machines
+#   multiple axes at the same time in sensorless in corexy machines
+#   The default is 0 seconds
 #homing_positive_dir:
 #   If true, homing will cause the stepper to move in a positive
 #   direction (away from zero); if false, home towards zero. It is
