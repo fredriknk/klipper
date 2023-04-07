@@ -222,7 +222,6 @@ class Homing:
                                 for sp in hmove.stepper_positions}
         self.adjust_pos = {}
         self.printer.send_event("homing:home_rails_end", self, rails)
-        
         if any(self.adjust_pos.values()):
             # Apply any homing offsets
             kin = self.toolhead.get_kinematics()

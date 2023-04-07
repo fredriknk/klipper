@@ -188,6 +188,15 @@ position_max:
 #second_homing_speed:
 #   Velocity (in mm/s) of the stepper when performing the second home.
 #   The default is homing_speed/2.
+#homing_retract_after: 0.
+#   Distance to backoff (in mm) after homing to prevent carriage lock
+#   in corexy machines. The home retract after variable uses the same
+#   homing_retract_speed as homing_retract_dist variable adjust speed. 
+#   Set this to zero to disable the retract. 
+#   The default is 0mm.
+#homing_retract_dwell: 0.
+#   Seconds dwell time after retract to prevent triggering when homing
+#   sensorless in corexy machines
 #homing_positive_dir:
 #   If true, homing will cause the stepper to move in a positive
 #   direction (away from zero); if false, home towards zero. It is
