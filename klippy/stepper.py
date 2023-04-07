@@ -363,10 +363,11 @@ class PrinterRail:
     def get_homing_info(self):
         homing_info = collections.namedtuple('homing_info', [
             'speed', 'position_endstop', 'retract_speed', 'retract_dist',
-            'positive_dir', 'second_homing_speed','homing_retract_after','homing_retract_dwell'])(
+            'positive_dir', 'second_homing_speed','homing_retract_after',
+            'homing_retract_dwell'])(
                 self.homing_speed, self.position_endstop,
                 self.homing_retract_speed, self.homing_retract_dist,
-                self.homing_positive_dir, self.second_homing_speed, 
+                self.homing_positive_dir, self.second_homing_speed,
                 self.homing_retract_after,self.homing_retract_dwell)
         return homing_info
     def get_steppers(self):

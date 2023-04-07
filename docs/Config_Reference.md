@@ -191,8 +191,8 @@ position_max:
 #homing_retract_after: 0.
 #   Distance to backoff (in mm) after homing to prevent carriage lock
 #   in corexy machines. The home retract after variable uses the same
-#   homing_retract_speed as homing_retract_dist variable adjust speed. 
-#   Set this to zero to disable the retract. 
+#   homing_retract_speed as homing_retract_dist variable adjust speed.
+#   Set this to zero to disable the retract.
 #   The default is 0mm.
 #homing_retract_dwell: 0.
 #   Seconds dwell time after retract to prevent triggering when homing
